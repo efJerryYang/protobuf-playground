@@ -49,17 +49,17 @@ public final class AddressBookProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021addressbook.proto\022\010tutorial\"\243\002\n\006Person" +
-      "\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(" +
-      "\t\022,\n\006phones\030\004 \003(\0132\034.tutorial.Person.Phon" +
-      "eNumber\032X\n\013PhoneNumber\022\016\n\006number\030\001 \001(\t\0229" +
-      "\n\004type\030\002 \001(\0162\032.tutorial.Person.PhoneType" +
-      ":\017PHONE_TYPE_HOME\"h\n\tPhoneType\022\032\n\026PHONE_" +
-      "TYPE_UNSPECIFIED\020\000\022\025\n\021PHONE_TYPE_MOBILE\020" +
-      "\001\022\023\n\017PHONE_TYPE_HOME\020\002\022\023\n\017PHONE_TYPE_WOR" +
-      "K\020\003\"/\n\013AddressBook\022 \n\006people\030\001 \003(\0132\020.tut" +
-      "orial.PersonB2\n\033com.example.tutorial.pro" +
-      "tosB\021AddressBookProtosP\001"
+      "\n\021addressbook.proto\022\010tutorial\"\224\002\n\006Person" +
+      "\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022,\n\006phones\030\004 \003" +
+      "(\0132\034.tutorial.Person.PhoneNumber\032X\n\013Phon" +
+      "eNumber\022\016\n\006number\030\001 \001(\t\0229\n\004type\030\002 \001(\0162\032." +
+      "tutorial.Person.PhoneType:\017PHONE_TYPE_HO" +
+      "ME\"h\n\tPhoneType\022\032\n\026PHONE_TYPE_UNSPECIFIE" +
+      "D\020\000\022\025\n\021PHONE_TYPE_MOBILE\020\001\022\023\n\017PHONE_TYPE" +
+      "_HOME\020\002\022\023\n\017PHONE_TYPE_WORK\020\003\"/\n\013AddressB" +
+      "ook\022 \n\006people\030\001 \003(\0132\020.tutorial.PersonB2\n" +
+      "\033com.example.tutorial.protosB\021AddressBoo" +
+      "kProtosP\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -70,7 +70,7 @@ public final class AddressBookProtos {
     internal_static_tutorial_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_tutorial_Person_descriptor,
-        new java.lang.String[] { "Name", "Id", "Email", "Phones", });
+        new java.lang.String[] { "Name", "Id", "Phones", });
     internal_static_tutorial_Person_PhoneNumber_descriptor =
       internal_static_tutorial_Person_descriptor.getNestedTypes().get(0);
     internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable = new

@@ -38,23 +38,6 @@ public interface PersonOrBuilder extends
   int getId();
 
   /**
-   * <code>optional string email = 3;</code>
-   * @return Whether the email field is set.
-   */
-  boolean hasEmail();
-  /**
-   * <code>optional string email = 3;</code>
-   * @return The email.
-   */
-  java.lang.String getEmail();
-  /**
-   * <code>optional string email = 3;</code>
-   * @return The bytes for email.
-   */
-  com.google.protobuf.ByteString
-      getEmailBytes();
-
-  /**
    * <pre>
    * each elem in the repeated field would use a tag
    * `required` is strongly disfavored, and in proto3, it is not allowed
