@@ -39,6 +39,35 @@ public interface PersonOrBuilder extends
 
   /**
    * <pre>
+   * 1, 2, 3 are tags, not positions
+   * </pre>
+   *
+   * <code>optional string email = 3;</code>
+   * @return Whether the email field is set.
+   */
+  boolean hasEmail();
+  /**
+   * <pre>
+   * 1, 2, 3 are tags, not positions
+   * </pre>
+   *
+   * <code>optional string email = 3;</code>
+   * @return The email.
+   */
+  java.lang.String getEmail();
+  /**
+   * <pre>
+   * 1, 2, 3 are tags, not positions
+   * </pre>
+   *
+   * <code>optional string email = 3;</code>
+   * @return The bytes for email.
+   */
+  com.google.protobuf.ByteString
+      getEmailBytes();
+
+  /**
+   * <pre>
    * each elem in the repeated field would use a tag
    * `required` is strongly disfavored, and in proto3, it is not allowed
    * </pre>

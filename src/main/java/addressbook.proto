@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 // .proto file starts with a package declaration
 package tutorial;
@@ -11,7 +11,7 @@ option java_outer_classname = "AddressBookProtos";
 message Person {
     optional string name = 1;
     optional int32 id = 2;
-
+    optional string email = 3;
     // 1, 2, 3 are tags, not positions
 
     enum PhoneType {
@@ -23,7 +23,7 @@ message Person {
 
     message PhoneNumber {
         optional string number = 1;
-        optional PhoneType type = 2 [default = PHONE_TYPE_HOME];
+        optional PhoneType type = 2;
     }
 
     repeated PhoneNumber phones = 4;

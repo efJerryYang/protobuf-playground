@@ -1,0 +1,10 @@
+{
+    "protoc": {
+            "path": "/path/to/bin/protoc",
+            "compile_on_save": true,
+            "options": [
+                "--proto_path=${workspaceRoot}/src/main/java/",
+                "--java_out=${workspaceRoot}/src/main/java/"
+            ]
+        }
+}
