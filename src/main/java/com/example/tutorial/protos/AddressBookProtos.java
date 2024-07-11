@@ -49,19 +49,17 @@ public final class AddressBookProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021addressbook.proto\022\010tutorial\"\331\002\n\006Person" +
-      "\022\021\n\004name\030\001 \001(\tH\000\210\001\001\022\017\n\002id\030\002 \001(\005H\001\210\001\001\022\022\n\005" +
-      "email\030\003 \001(\tH\002\210\001\001\022,\n\006phones\030\004 \003(\0132\034.tutor" +
-      "ial.Person.PhoneNumber\032e\n\013PhoneNumber\022\023\n" +
-      "\006number\030\001 \001(\tH\000\210\001\001\022-\n\004type\030\002 \001(\0162\032.tutor" +
-      "ial.Person.PhoneTypeH\001\210\001\001B\t\n\007_numberB\007\n\005" +
-      "_type\"h\n\tPhoneType\022\032\n\026PHONE_TYPE_UNSPECI" +
-      "FIED\020\000\022\025\n\021PHONE_TYPE_MOBILE\020\001\022\023\n\017PHONE_T" +
-      "YPE_HOME\020\002\022\023\n\017PHONE_TYPE_WORK\020\003B\007\n\005_name" +
-      "B\005\n\003_idB\010\n\006_email\"/\n\013AddressBook\022 \n\006peop" +
-      "le\030\001 \003(\0132\020.tutorial.PersonB2\n\033com.exampl" +
-      "e.tutorial.protosB\021AddressBookProtosP\001b\006" +
-      "proto3"
+      "\n\021addressbook.proto\022\010tutorial\"\243\002\n\006Person" +
+      "\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(" +
+      "\t\022,\n\006phones\030\004 \003(\0132\034.tutorial.Person.Phon" +
+      "eNumber\032X\n\013PhoneNumber\022\016\n\006number\030\001 \001(\t\0229" +
+      "\n\004type\030\002 \001(\0162\032.tutorial.Person.PhoneType" +
+      ":\017PHONE_TYPE_HOME\"h\n\tPhoneType\022\032\n\026PHONE_" +
+      "TYPE_UNSPECIFIED\020\000\022\025\n\021PHONE_TYPE_MOBILE\020" +
+      "\001\022\023\n\017PHONE_TYPE_HOME\020\002\022\023\n\017PHONE_TYPE_WOR" +
+      "K\020\003\"/\n\013AddressBook\022 \n\006people\030\001 \003(\0132\020.tut" +
+      "orial.PersonB2\n\033com.example.tutorial.pro" +
+      "tosB\021AddressBookProtosP\001"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -66,7 +66,6 @@ private static final long serialVersionUID = 0L;
      * <code>PHONE_TYPE_WORK = 3;</code>
      */
     PHONE_TYPE_WORK(3),
-    UNRECOGNIZED(-1),
     ;
 
     static {
@@ -97,10 +96,6 @@ private static final long serialVersionUID = 0L;
 
 
     public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
       return value;
     }
 
@@ -142,10 +137,6 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -164,9 +155,6 @@ private static final long serialVersionUID = 0L;
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
       }
       return VALUES[desc.getIndex()];
     }
@@ -202,17 +190,12 @@ private static final long serialVersionUID = 0L;
         getNumberBytes();
 
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
      * @return Whether the type field is set.
      */
     boolean hasType();
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    int getTypeValue();
-    /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
      * @return The type.
      */
     com.example.tutorial.protos.Person.PhoneType getType();
@@ -240,7 +223,7 @@ private static final long serialVersionUID = 0L;
     }
     private PhoneNumber() {
       number_ = "";
-      type_ = 0;
+      type_ = 2;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -281,7 +264,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        number_ = s;
+        if (bs.isValidUtf8()) {
+          number_ = s;
+        }
         return s;
       }
     }
@@ -305,28 +290,21 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private int type_ = 0;
+    private int type_ = 2;
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
      * @return Whether the type field is set.
      */
     @java.lang.Override public boolean hasType() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    @java.lang.Override public int getTypeValue() {
-      return type_;
-    }
-    /**
-     * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+     * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
      * @return The type.
      */
     @java.lang.Override public com.example.tutorial.protos.Person.PhoneType getType() {
       com.example.tutorial.protos.Person.PhoneType result = com.example.tutorial.protos.Person.PhoneType.forNumber(type_);
-      return result == null ? com.example.tutorial.protos.Person.PhoneType.UNRECOGNIZED : result;
+      return result == null ? com.example.tutorial.protos.Person.PhoneType.PHONE_TYPE_HOME : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -540,7 +518,7 @@ private static final long serialVersionUID = 0L;
         super.clear();
         bitField0_ = 0;
         number_ = "";
-        type_ = 0;
+        type_ = 2;
         return this;
       }
 
@@ -633,13 +611,20 @@ private static final long serialVersionUID = 0L;
                 done = true;
                 break;
               case 10: {
-                number_ = input.readStringRequireUtf8();
+                number_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
               case 16: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000002;
+                int tmpRaw = input.readEnum();
+                com.example.tutorial.protos.Person.PhoneType tmpValue =
+                    com.example.tutorial.protos.Person.PhoneType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(2, tmpRaw);
+                } else {
+                  type_ = tmpRaw;
+                  bitField0_ |= 0x00000002;
+                }
                 break;
               } // case 16
               default: {
@@ -677,7 +662,9 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          number_ = s;
+          if (bs.isValidUtf8()) {
+            number_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -731,50 +718,31 @@ private static final long serialVersionUID = 0L;
       public Builder setNumberBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
         number_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
-      private int type_ = 0;
+      private int type_ = 2;
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
        * @return Whether the type field is set.
        */
       @java.lang.Override public boolean hasType() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-       * @return The enum numeric value on the wire for type.
-       */
-      @java.lang.Override public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
-       * @param value The enum numeric value on the wire for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
        * @return The type.
        */
       @java.lang.Override
       public com.example.tutorial.protos.Person.PhoneType getType() {
         com.example.tutorial.protos.Person.PhoneType result = com.example.tutorial.protos.Person.PhoneType.forNumber(type_);
-        return result == null ? com.example.tutorial.protos.Person.PhoneType.UNRECOGNIZED : result;
+        return result == null ? com.example.tutorial.protos.Person.PhoneType.PHONE_TYPE_HOME : result;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -788,12 +756,12 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2;</code>
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = PHONE_TYPE_HOME];</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        type_ = 0;
+        type_ = 2;
         onChanged();
         return this;
       }
@@ -874,7 +842,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      name_ = s;
+      if (bs.isValidUtf8()) {
+        name_ = s;
+      }
       return s;
     }
   }
@@ -948,7 +918,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      email_ = s;
+      if (bs.isValidUtf8()) {
+        email_ = s;
+      }
       return s;
     }
   }
@@ -1430,7 +1402,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              name_ = input.readStringRequireUtf8();
+              name_ = input.readBytes();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -1440,7 +1412,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 16
             case 26: {
-              email_ = input.readStringRequireUtf8();
+              email_ = input.readBytes();
               bitField0_ |= 0x00000004;
               break;
             } // case 26
@@ -1492,7 +1464,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1546,7 +1520,6 @@ private static final long serialVersionUID = 0L;
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
       name_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
@@ -1619,7 +1592,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        email_ = s;
+        if (bs.isValidUtf8()) {
+          email_ = s;
+        }
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1689,7 +1664,6 @@ private static final long serialVersionUID = 0L;
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
       email_ = value;
       bitField0_ |= 0x00000004;
       onChanged();

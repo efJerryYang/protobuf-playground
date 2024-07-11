@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 // .proto file starts with a package declaration
 package tutorial;
@@ -23,7 +23,7 @@ message Person {
 
     message PhoneNumber {
         optional string number = 1;
-        optional PhoneType type = 2;
+        optional PhoneType type = 2 [default = PHONE_TYPE_HOME];
     }
 
     repeated PhoneNumber phones = 4;
