@@ -6,9 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
-class ListPeople {
+public class ListPeople {
   // Iterates though all people in the AddressBook and prints info about them.
-  static void Print(AddressBook addressBook) {
+  public static void Print(AddressBook addressBook) {
     for (Person person: addressBook.getPeopleList()) {
       System.out.println("Person ID: " + person.getId());
       System.out.println("  Name: " + person.getName());
@@ -26,6 +26,9 @@ class ListPeople {
             break;
           case PHONE_TYPE_WORK:
             System.out.print("  Work phone #: ");
+            break;
+          default:
+            System.out.print("  Unknown phone #: ");
             break;
         }
         System.out.println(phoneNumber.getNumber());

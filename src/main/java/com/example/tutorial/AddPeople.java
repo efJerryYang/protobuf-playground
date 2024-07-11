@@ -10,9 +10,9 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
-class AddPeople {
+public class AddPeople {
   // This function fills in a Person message based on user input.
-  static Person PromptForAddress(BufferedReader stdin,
+  public static Person PromptForAddress(BufferedReader stdin,
                                  PrintStream stdout) throws IOException {
     Person.Builder person = Person.newBuilder();
 
