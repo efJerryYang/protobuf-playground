@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package campaign;
+
+option java_multiple_files = true;
+option java_package = "com.example.campaign.protos";
+option java_outer_classname = "CampaignProtos";
+
+enum RuleType {
+    BATCH = 0;
+    REALTIME = 1;
+}
+
+enum RuleOp {
+    AND = 0;
+    OR = 1;
+}
+
+message RuleExpr {
+    oneof expr {
+        RuleNode rule_node = 1;  
+        RuleOpExpr rule_op = 2;  
+    }
+}
+
+message RuleNode {
+    RuleType type = 1;      
+    string description = 2; 
+}
+
+message RuleOpExpr {
+    RuleOp op = 1;          
+    RuleExpr left = 2;      
+    RuleExpr right = 3;     
+}
+
+message Rule {
+    RuleExpr expr = 1;  
+}
+
+message Schedule {
+    enum ScheduleType {
+        DAILY = 0;
+        WEEKLY = 1;
+        MONTHLY = 2;
+    }
+}
+
+message Target {
+    bool notification = 1;
+    bool homepage_injected_shelf = 2;
+    bool after_play = 3;
+}
+
+message Campaign {
+    Rule rule = 1;
+    Schedule schedule = 2;
+    Target target = 3;
+}
