@@ -17,5 +17,14 @@ public class App
                 .build())
               .build();
         System.out.println( john );
+        System.out.println(john.isInitialized());
+        byte[] btarr = john.toByteArray();
+        System.out.println(btarr);
+        try {
+            Person john2 = Person.parseFrom(btarr);
+            System.out.println(john2);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
